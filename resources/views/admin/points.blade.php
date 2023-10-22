@@ -8,6 +8,8 @@
     <div id="app">
         <h1>SISTEMAS DE RIEGO</h1>
         <div class="cards-container">
+            @foreach ($points as $point)
+            @endforeach
             <div class="card">
                 <div class="card-detail">
                     <div class="card-info">

@@ -40,4 +40,8 @@
 .card-img img{
     width: 200px;
 }
+
+.hidden {
+    display: none;
+}
  
