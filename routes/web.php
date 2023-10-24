@@ -59,3 +59,11 @@ Route::post('api/providers', [ProvidersController::class, 'store'])->name('provi
 Route::get('api/user/updateRol/{id}', [UsersController::class, 'updateRol'])->name('updateRol');
 
 Route::post('logout', [UsersController::class, 'logout'])->name('logout');
+
+Route::post('api/point', [PointsController::class, 'store'])->name('point');
+
+Route::get('api/point/{id}', [PointsController::class, 'getPoints'])->name('point');
+
+Route::get('api/user/{id}', [UsersController::class, 'getUser'])->name('user');
+
+Route::get('api/providers/{id}', [ProvidersController::class, 'getProvider'])->name('user');

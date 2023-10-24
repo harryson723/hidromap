@@ -67,8 +67,12 @@ class UsersController extends Controller
         }
         return redirect()->route('registerProvider')->with('success:', 'Usuario creado exitosamente');
     }
-
-
+    
+    public function getUser($id)
+    {
+        $user = users::where('id', $id)->first();
+        return response()->json($user);
+    }
 
 
 }

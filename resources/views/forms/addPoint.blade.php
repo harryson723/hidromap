@@ -7,19 +7,33 @@
 
 @section('content')
     <div class="form-container">
-        <form class="form-form" action="">
+        <form class="form-form" action="{{ route('point') }}" method="POST">
+            @csrf
+            @error('latitude')
+                <h6 class="alert alert-danger">{{ $message }}</h6>
+            @enderror
+            @error('longitud')
+                <h6 class="alert alert-danger">{{ $message }}</h6>
+            @enderror
+            @error('description')
+                <h6 class="alert alert-danger">{{ $message }}</h6>
+            @enderror
+            @error('name')
+                <h6 class="alert alert-danger">{{ $message }}</h6>
+            @enderror
             <div class="mb-3">
                 <label for="name" class="form-label">Ingresa el nombre:</label>
-                <input type="password" class="form-control" name="name" id="name" placeholder="Ingrese su contraseña">
+                <input type="text" class="form-control" name="name" id="name"
+                    placeholder="Ingrese su contraseña">
             </div>
             <div class="mb-3">
                 <label for="latitude" class="form-label">Latitud:</label>
-                <input type="password" class="form-control" name="latitude" id="latitude"
+                <input type="text" class="form-control" name="latitude" id="latitude"
                     placeholder="Ingrese su contraseña">
             </div>
             <div class="mb-3">
                 <label for="longitud" class="form-label">Longitud:</label>
-                <input type="password" class="form-control" name="longitud" id="longitud"
+                <input type="text" class="form-control" name="longitud" id="longitud"
                     placeholder="Ingrese su contraseña">
             </div>
             <div class="mb-3">
@@ -40,6 +54,7 @@
 
 @section('scripts')
     <script>
+
         // Crea un mapa en el contenedor con ID 'map'
         const map = L.map('map').setView([4.3095, -74.3005], 16);
 
@@ -56,8 +71,8 @@
             }
             var latlng = e.latlng;
             marker = L.marker(latlng).addTo(map);
-            console.log('Latitud: ' + latlng.lat);
-            console.log('Longitud: ' + latlng.lng);
+            document.getElementById('latitude').value = latlng.lat;
+            document.getElementById('longitud').value = latlng.lng;
         });
     </script>
 @endsection
