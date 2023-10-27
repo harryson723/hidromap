@@ -1,0 +1,85 @@
+.antialiased{
+    position: fixed;
+    width: 100%;
+}
+.form-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    .form-img {
+        width: 100%;
+        background-image: url("../images/olas.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        
+
+        .form-form {
+            width: 30%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            background-color: rgba($color: #333333, $alpha: 0.2);
+            background-image: url("../images/burbujas.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            .maskop{
+                display: none;
+                width: 100%;
+                height: 100%;
+                opacity: 0.5;
+            }
+
+            .mb-3 {
+                width: 50%;
+                .form-label {
+                    background: transparent;
+                    color: #333333;
+                }
+                .form-control {
+                    color: #333333;
+                    background-color: #bdbdbd;
+                    border-color: #333333;
+                }
+            }
+            .details {
+                background-color: #0072bb;
+                border-color: #0072bb;
+            }
+        }
+    }
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .card {
+        margin: 40px;
+        width: 80%;
+        .card-detail {
+            display: flex;
+            flex-direction: row;
+            .card-info {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+.card-img img {
+    width: 200px;
+}
+
+.hidden {
+    display: none;
+}

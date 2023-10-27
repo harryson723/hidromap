@@ -18,7 +18,6 @@
             <input class="btn btn-primary mt-3" type="submit" value="Enviar">
         </form>
         <div class="form-img">
-            <img src="{!! asset('images/formImg.jpg') !!}" alt="" srcset="">
         </div>
     </div>
 @endsection

@@ -32,7 +32,6 @@
             @endphp
         </form>
         <div class="form-img">
-            <img src="{!! asset('images/formImg.jpg') !!}" alt="" srcset="">
         </div>
     </div>
     <div id="map" style="width: 80%; height: 600px;"></div>
