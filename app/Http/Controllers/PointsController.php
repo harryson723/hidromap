@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class PointsController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'latitude' => 'required',
             'longitud' => 'required',
@@ -25,11 +26,38 @@ class PointsController extends Controller
         $point->FK_id_provider = $request->FK_id_provider;
         $point->save();
 
-        return redirect()->route('login')->with('success:', 'Usuario creado exitosamente');
+        return redirect()->route('addPoint')->with('success:', 'Punto creado exitosamente');
     }
 
-    public function show(Point $point) {
+    public function show(Point $point)
+    {
         $points = point::all();
-        return view('admin.points', ['points'=> $points]);
+        return view('admin.points', ['points' => $points]);
+    }
+
+    public function edit(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'latitude' => 'required',
+            'longitud' => 'required',
+            'description' => 'required',
+            'name' => 'required',
+        ]);
+        $point = point::find($request->id);
+        if ($point) {
+            $point->latitude = $request->latitude;
+            $point->longitud = $request->longitud;
+            $point->description = $request->description;
+            $point->name = $request->name;
+            $point->save();
+        }
+        return response()->json($point);
+    }
+
+    public function getPoints($id)
+    {
+        $point = point::where('FK_id_provider', $id)->get();
+        return response()->json($point);
     }
 }

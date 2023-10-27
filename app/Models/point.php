@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class point extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 }

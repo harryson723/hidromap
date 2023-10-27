@@ -21,7 +21,28 @@ class ProvidersController extends Controller
         $provider->phone = $request->phone;
         $provider->image = '';
         $provider->save();
-        return redirect()->route('updateRol', ['id' => $request->name]);	
+        return redirect()->route('updateRol', ['id' => $request->name]);
+    }
+
+    public function edit(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+        ]);
+        $provider = provider::find($request->id);
+        if ($provider) {
+            $provider->address = $request->address;
+            $provider->phone = $request->phone;
+            $provider->save();
+        }
+        return response()->json($provider);
+    }
+    public function getProvider($id)
+    {
+        $provider = provider::where('id', $id)->first();
+        return response()->json($provider);
     }
 
 
