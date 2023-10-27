@@ -36,7 +36,6 @@
             <input type="text" class="hidden" name="rol" id="rol" value="usuario">
         </form>
         <div class="form-img">
-            <img src="{!! asset('images/formImg.jpg') !!}" alt="" srcset="">
         </div>
     </div>
 @endsection
