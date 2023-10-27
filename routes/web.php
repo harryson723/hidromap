@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PointsController;
 use App\Http\Controllers\ProvidersController;
+use App\Http\Controllers\SuggestionsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,8 @@ Route::get('suggestion', function () {
 })->name('suggestion');;
 
 
+Route::get('api/points', [PointsController::class, 'get'])->name('getpoints');
+
 Route::post('api/users', [UsersController::class, 'store'])->name('users');
 
 Route::post('api/user', [UsersController::class, 'login'])->name('user');
@@ -62,8 +65,13 @@ Route::post('logout', [UsersController::class, 'logout'])->name('logout');
 
 Route::post('api/point', [PointsController::class, 'store'])->name('point');
 
-Route::get('api/point/{id}', [PointsController::class, 'getPoints'])->name('point');
+Route::get('api/point/{id}', [PointsController::class, 'getPoints'])->name('pointId');
 
-Route::get('api/user/{id}', [UsersController::class, 'getUser'])->name('user');
+Route::get('api/user/{id}', [UsersController::class, 'getUser'])->name('userId');
 
-Route::get('api/providers/{id}', [ProvidersController::class, 'getProvider'])->name('user');
+Route::get('api/providers/{id}', [ProvidersController::class, 'getProvider'])->name('providersId');
+
+Route::get('api/suggestion', [SuggestionsController::class, 'get'])->name('getSuggestion');
+
+Route::post('api/suggestion', [SuggestionsController::class, 'store'])->name('postSuggestion');
+

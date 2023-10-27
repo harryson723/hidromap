@@ -35,6 +35,13 @@ class PointsController extends Controller
         return view('admin.points', ['points' => $points]);
     }
 
+    public function get()
+    {
+        $points = point::all();
+        return response()->json($points);
+    }
+
+
     public function edit(Request $request)
     {
         $request->validate([
