@@ -1,14 +1,17 @@
-const getUsers =  async () => {
+const getUsers = async () => {
     let res = await fetch('api/user');
     let data = await res.json();
     let text = '';
     data.forEach(e => {
-        text += `
+        if (e.rol == 'usuario')
+            text += `
             <option value="${e.id}">${e.name}</option>
         `;
     });
-    document.getElementById('email').value = data[0].email;
-    document.getElementById('name').innerHTML = text;
+    if (data[0].rol == 'usuario') {
+        document.getElementById('email').value = data[0].email;
+        document.getElementById('name').innerHTML = text;
+    }
     document.getElementById('name').addEventListener('click', e => {
         console.log(e.target.value);
         // document.getElementById('email').value = data[e.target.seletedIndex]

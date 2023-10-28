@@ -1,10 +1,6 @@
-const getPoints = async () => {
-    let res = await fetch('api/point/' + idProvider);
+const getProviders = async () => {
+    let res = await fetch('api/providers');
     let data = await res.json();
-    res = await fetch('api/user/' + idProvider);
-    let user = await res.json();
-    res = await fetch('api/providers/' + idProvider);
-    let provider = await res.json();
     text = '';
     data.forEach(e => {
         text += `
@@ -14,20 +10,20 @@ const getPoints = async () => {
                         <form class="point-update">
                             <div>
                                 <label>NOMBRE:</label>
-                                <input value="${e.name}"/>
+                                <input value="${e.user.name}"/>
                             </div>
                             <div>
                                 <label>DIRECCIÓN:</label>
-                                <input value="${provider.address}" disabled/>
+                                <input value="${e.address}"/>
                             </div>
                             <span>INFORMACIÓN DE CONTACTO: </span>
                             <div>
                                 <label>TELEFONO:</label>
-                                <input value="${provider.phone}" disabled/>
+                                <input value="${e.phone}"/>
                             </div>
                             <div>
                                 <label>CORREO:</label>
-                                <input value="${user.email}" disabled/>
+                                <input value="${e.user.email}"/>
                             </div>
                             <input class="hidden" value=${e.id}/>
                             <div class="card-options">
@@ -37,7 +33,7 @@ const getPoints = async () => {
                         </form>
                     </div>
                     <div class="card-img">
-                        <img src="${provider.image}" alt="" srcset="">
+                        <img src="${e.image}" alt="" srcset="">
                     </div>
                 </div>
             </div>
@@ -55,11 +51,17 @@ const getPoints = async () => {
             e.preventDefault();
             let form = e.target.parentElement.parentElement;
             let name = form.querySelectorAll('div input')[0].value;
+            let address = form.querySelectorAll('div input')[1].value;
+            let phone = form.querySelectorAll('div input')[2].value;
+            let email = form.querySelectorAll('div input')[3].value;
             let id = form.querySelectorAll('div input')[4].value.substring(0, 1);
             const formData = new FormData();
             formData.append('id', id);
             formData.append('name', name);
-            let res = await fetch('api/point/' + id, {
+            formData.append('address', address);
+            formData.append('phone', phone);
+            formData.append('email', email);
+            let res = await fetch('api/providers/update', {
                 method: 'POST',
                 body: formData
             });
@@ -86,4 +88,4 @@ const getPoints = async () => {
     });
 }
 
-getPoints();
+getProviders();

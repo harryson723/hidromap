@@ -42,12 +42,13 @@ Route::get('points', [PointsController::class, 'show'])->name('points');
 
 Route::get('users', function () {
     return view('admin.users');
-})->name('users');;
+})->name('usersAdmin');;
 
 Route::get('suggestion', function () {
     return view('admin.suggestion');
-})->name('suggestion');;
+})->name('suggestion');
 
+Route::post('api/point/{id}', [PointsController::class, 'edit'])->name('pointEdit');
 
 Route::get('api/points', [PointsController::class, 'get'])->name('getpoints');
 
@@ -75,3 +76,10 @@ Route::get('api/suggestion', [SuggestionsController::class, 'get'])->name('getSu
 
 Route::post('api/suggestion', [SuggestionsController::class, 'store'])->name('postSuggestion');
 
+// funciones de eliminado
+
+Route::delete('api/point/{id}', [PointsController::class, 'delete'])->name('pointDelete');
+
+Route::get('api/providers', [ProvidersController::class, 'get'])->name('getProviders');
+
+Route::post('api/providers/update', [ProvidersController::class, 'edit'])->name('editProviders');

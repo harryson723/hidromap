@@ -46,16 +46,13 @@ class PointsController extends Controller
     {
         $request->validate([
             'id' => 'required',
-            'latitude' => 'required',
-            'longitud' => 'required',
-            'description' => 'required',
             'name' => 'required',
         ]);
         $point = point::find($request->id);
         if ($point) {
-            $point->latitude = $request->latitude;
-            $point->longitud = $request->longitud;
-            $point->description = $request->description;
+            // $point->latitude = $request->latitude;
+            // $point->longitud = $request->longitud;
+            // $point->description = $request->description;
             $point->name = $request->name;
             $point->save();
         }
@@ -66,5 +63,17 @@ class PointsController extends Controller
     {
         $point = point::where('FK_id_provider', $id)->get();
         return response()->json($point);
+    }
+
+    public function delete($id)
+    {
+        $point = point::where('id', $id)->first();
+
+        if ($point) {
+            $point->delete();
+            return response()->json(['message' => 'Registro eliminado correctamente']);
+        } else {
+            return response()->json(['message' => 'No se encontraron registros para eliminar'], 404);
+        }
     }
 }
