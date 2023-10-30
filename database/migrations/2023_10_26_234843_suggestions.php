@@ -4,20 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvidersTable extends Migration
+class Suggestions extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */
-    public function up()
+     */    public function up()
     {
-        Schema::create('providers', function (Blueprint $table) {
-            $table->foreignId('id')->constrained('users');
-            $table->string('phone');
-            $table->string('image');
-            $table->string('address');
+        Schema::create('suggestions', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('comment');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateProvidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('providers');
+        //
     }
 }

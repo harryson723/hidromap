@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PointsController;
 use App\Http\Controllers\ProvidersController;
+use App\Http\Controllers\SuggestionsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,12 +42,15 @@ Route::get('points', [PointsController::class, 'show'])->name('points');
 
 Route::get('users', function () {
     return view('admin.users');
-})->name('users');;
+})->name('usersAdmin');;
 
 Route::get('suggestion', function () {
     return view('admin.suggestion');
-})->name('suggestion');;
+})->name('suggestion');
 
+Route::post('api/point/{id}', [PointsController::class, 'edit'])->name('pointEdit');
+
+Route::get('api/points', [PointsController::class, 'get'])->name('getpoints');
 
 Route::post('api/users', [UsersController::class, 'store'])->name('users');
 
@@ -62,8 +66,20 @@ Route::post('logout', [UsersController::class, 'logout'])->name('logout');
 
 Route::post('api/point', [PointsController::class, 'store'])->name('point');
 
-Route::get('api/point/{id}', [PointsController::class, 'getPoints'])->name('point');
+Route::get('api/point/{id}', [PointsController::class, 'getPoints'])->name('pointId');
 
-Route::get('api/user/{id}', [UsersController::class, 'getUser'])->name('user');
+Route::get('api/user/{id}', [UsersController::class, 'getUser'])->name('userId');
 
-Route::get('api/providers/{id}', [ProvidersController::class, 'getProvider'])->name('user');
+Route::get('api/providers/{id}', [ProvidersController::class, 'getProvider'])->name('providersId');
+
+Route::get('api/suggestion', [SuggestionsController::class, 'get'])->name('getSuggestion');
+
+Route::post('api/suggestion', [SuggestionsController::class, 'store'])->name('postSuggestion');
+
+// funciones de eliminado
+
+Route::delete('api/point/{id}', [PointsController::class, 'delete'])->name('pointDelete');
+
+Route::get('api/providers', [ProvidersController::class, 'get'])->name('getProviders');
+
+Route::post('api/providers/update', [ProvidersController::class, 'edit'])->name('editProviders');

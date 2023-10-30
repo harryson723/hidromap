@@ -11,44 +11,42 @@
     @yield('head')
 </head>
 
-<body class="antialiased">
-    @if (session('rol') == 'proveedor')
-        <nav>
-            <li>
-                <ul><a href="{{ route('points') }}">Ver puntos</a></ul>
-                <ul><a href="{{ route('addPoint') }}">Añadir punto</a></ul>
+<body>
+    <nav class="nav">
+        <li>
+            @if (session('rol') == 'proveedor')
+                <div class="nav-options">
+                    <ul><a href="{{ route('points') }}">Ver puntos</a></ul>
+                    <ul><a href="{{ route('addPoint') }}">Añadir punto</a></ul>
+                </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
                 </form>
-            </li>
-        </nav>
-    @endif
-    @if (session('rol') == 'usuario')
-        <nav>
-            <li>
-                <ul><a href="{{ route('dashboard') }}">Inicio</a></ul>
-                <ul><a href="{{ route('addsuggestion') }}">Añadir una sugerencia</a></ul>
+            @endif
+            @if (session('rol') == 'usuario')
+                <div class="nav-options">
+                    <ul><a href="{{ route('dashboard') }}">Inicio</a></ul>
+                    <ul><a href="{{ route('addsuggestion') }}">Añadir una sugerencia</a></ul>
+                </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
                 </form>
-            </li>
-        </nav>
-    @endif
-    @if (session('rol') == 'admin')
-        <nav>
-            <li>
-                <ul><a href="{{ route('users') }}">Proveedores</a></ul>
-                <ul><a href="{{ route('registerProvider') }}">Registrar proveedor</a></ul>
-                <ul><a href="{{ route('suggestion') }}">Ver sugerencias</a></ul>
+            @endif
+            @if (session('rol') == 'admin')
+                <div class="nav-options">
+                    <ul><a href="{{ route('usersAdmin') }}">Proveedores</a></ul>
+                    <ul><a href="{{ route('registerProvider') }}">Registrar proveedor</a></ul>
+                    <ul><a href="{{ route('suggestion') }}">Ver sugerencias</a></ul>
+                </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
                 </form>
-            </li>
-        </nav>
-    @endif
+            @endif
+        </li>
+    </nav>
     @yield('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

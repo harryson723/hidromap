@@ -1,11 +1,13 @@
-.antialiased{
+.antialiased {
     position: fixed;
     width: 100%;
 }
+
 .form-container {
     width: 100%;
     height: 100vh;
     display: flex;
+
     .form-img {
         width: 100%;
         background-image: url("../images/olas.svg");
@@ -17,7 +19,7 @@
         justify-content: center;
         align-items: center;
         align-content: center;
-        
+
 
         .form-form {
             width: 30%;
@@ -32,7 +34,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            .maskop{
+
+            .maskop {
                 display: none;
                 width: 100%;
                 height: 100%;
@@ -41,16 +44,19 @@
 
             .mb-3 {
                 width: 50%;
+
                 .form-label {
                     background: transparent;
                     color: #333333;
                 }
+
                 .form-control {
                     color: #333333;
                     background-color: #bdbdbd;
                     border-color: #333333;
                 }
             }
+
             .details {
                 background-color: #0072bb;
                 border-color: #0072bb;
@@ -62,12 +68,15 @@
 .cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     .card {
         margin: 40px;
         width: 80%;
+
         .card-detail {
             display: flex;
             flex-direction: row;
+
             .card-info {
                 display: flex;
                 flex-direction: column;
@@ -83,3 +92,111 @@
 .hidden {
     display: none;
 }
+
+.nav {
+    background-color: #0072bb;
+
+    li {
+        list-style: none;
+        width: 100%;
+        display: flex;
+
+        ul {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+            padding: 15px 20px;
+            margin: 0;
+
+            &:hover {
+                background-color: #012a44;
+                padding-right: 30px;
+            }
+
+            a {
+                color: azure;
+                text-decoration: none;
+
+                &:link {
+                    color: azure;
+                }
+
+                &:active {
+                    color: azure;
+                }
+            }
+        }
+
+        form {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+            button {
+                transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+                padding: 15px 20px;
+
+                &:hover {
+                    background-color: #012a44;
+                    padding-right: 30px;
+                }
+
+                background-color: transparent;
+                border: none;
+                color: azure;
+            }
+        }
+    }
+}
+
+.nav-options {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px 40px;
+}
+
+.card {
+    background-color: #2281C3;
+    border-radius: 0;
+}
+
+.card-detail {
+    padding: 20px;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-options {
+    display: flex;
+    margin-top: 30px;
+    
+    button {
+        background-color: #012a44;
+        border: none;
+        color: azure;
+        padding: 10px 15px;
+        margin-right: 10px;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+        &:hover {
+            padding-right: 25px;
+            color: #000;
+            background-color: #b7dff8;
+        }
+    }
+}
+
+.card-img {
+    width: 40%;
+}
+
+.card-info {
+    width: 60%;
+}
+

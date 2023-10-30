@@ -4,9 +4,6 @@
     <div class="form-container">
         <form class="form-form" action="{{ route('providers') }}" method="POST">
             @csrf
-            @if (session('success'))
-            <h6 class="alert alert">{{ $message }}</h6>
-            @endif
             @error('id')
                 <h6 class="alert alert-danger">{{ $message }}</h6>
             @enderror
