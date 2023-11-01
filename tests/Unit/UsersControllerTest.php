@@ -6,6 +6,7 @@ use Faker as Faker;
 use Tests\TestCase;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
+
 class UsersControllerTest extends TestCase
 {
     //use DatabaseTransactions;
@@ -26,22 +27,26 @@ class UsersControllerTest extends TestCase
         $response = $controller->store($request);
 
         $this->assertDatabaseHas('users', [
-            'name' => $name ,
+            'name' => $name,
             'email' => $email,
             'rol' => 'usuario',
         ]);
 
+        
     }
 
     public function testLoginMethod()
     {
-
         $controller = new UsersController();
         $request = new Request([
-            'name' => 'Test User',
+            'name' => 'Fabian Gerhold',
             'password' => 'password123#E',
         ]);
 
         $response = $controller->login($request);
+
+        $session = $this->app['session.store'];
+        // Verifica que la sesión tenga un valor específico
+        $this->assertEquals('Usuario con credenciales correctas', $session->get('success'));
     }
 }

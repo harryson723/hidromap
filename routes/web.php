@@ -60,7 +60,7 @@ Route::get('api/user', [UsersController::class, 'getUsers'])->name('user');
 
 Route::post('api/providers', [ProvidersController::class, 'store'])->name('providers');
 
-Route::get('api/user/updateRol/{id}', [UsersController::class, 'updateRol'])->name('updateRol');
+Route::get('api/user/updateRol/{id}/{rol}', [UsersController::class, 'updateRol'])->name('updateRol');
 
 Route::post('logout', [UsersController::class, 'logout'])->name('logout');
 
@@ -79,6 +79,8 @@ Route::post('api/suggestion', [SuggestionsController::class, 'store'])->name('po
 // funciones de eliminado
 
 Route::delete('api/point/{id}', [PointsController::class, 'delete'])->name('pointDelete');
+
+Route::delete('api/providers/{id}', [ProvidersController::class, 'delete'])->name('providerDelete');
 
 Route::get('api/providers', [ProvidersController::class, 'get'])->name('getProviders');
 

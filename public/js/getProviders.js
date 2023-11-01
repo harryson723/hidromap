@@ -65,8 +65,13 @@ const getProviders = async () => {
                 method: 'POST',
                 body: formData
             });
-            let data = await res.json();
-            console.log(data);
+            try {
+                let data = await res.json();
+                if (data.id) alert('Actualizacion exitosa');
+                else alert('Error en la actualizacion');
+            } catch (error) {
+                alert('Error interno de servidor');
+            }
         });
     });
     document.querySelectorAll('.btn-delete').forEach(f => {
@@ -74,12 +79,14 @@ const getProviders = async () => {
             e.preventDefault();
             let form = e.target.parentElement.parentElement;
             let id = form.querySelectorAll('div input')[4].value.substring(0, 1)
-            let res = await fetch('api/point/' + id, {
+            let res = await fetch('api/providers/' + id, {
                 method: 'DELETE'
             });
             let data = await res.json();
-            console.log(data);
             if (data.message == 'Registro eliminado correctamente') {
+                let res = await fetch('api/user/updateRol/' + id + '/usuario', {
+                    method: 'get'
+                });
                 location.reload();
             } else {
                 alert(data.message);

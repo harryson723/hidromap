@@ -22,7 +22,7 @@ class ProvidersController extends Controller
         $provider->phone = $request->phone;
         $provider->image = '';
         $provider->save();
-        return redirect()->route('updateRol', ['id' => $request->name]);
+        return redirect()->route('updateRol', ['id' => $request->name, 'rol' => $request->rol]);
     }
 
     public function edit(Request $request)
@@ -62,6 +62,18 @@ class ProvidersController extends Controller
     {
         $providers = Provider::with('user')->get();
         return response()->json($providers);
+    }
+
+    public function delete($id)
+    {
+        $provider = provider::where('id', $id)->first();
+
+        if ($provider) {
+            $provider->delete();
+            return response()->json(['message' => 'Registro eliminado correctamente']);
+        } else {
+            return response()->json(['message' => 'No se encontraron registros para eliminar'], 404);
+        }
     }
 
 

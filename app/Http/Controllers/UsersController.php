@@ -33,7 +33,7 @@ class UsersController extends Controller
                 session()->put([
                     'success' => 'Usuario con credenciales correctas',
                     'rol' => $user->rol,
-                    'id' =>  $user->id
+                    'id' => $user->id
                 ]);
                 if ($user->rol == 'usuario') {
                     return redirect()->route('dashboard')->with('success:', 'Usuario con credenciales correctas');
@@ -54,24 +54,36 @@ class UsersController extends Controller
 
     public function getUsers(Request $request)
     {
-        $user = users::where('rol', 'usuario')->select('id', 'name', 'email')->get();
+        $user = users::where('rol', 'usuario')->select('id', 'name', 'email', 'rol')->get();
         return response()->json($user);
     }
 
-    public function updateRol($id)
+    public function updateRol($id, $rol)
     {
         $user = users::find($id);
         if ($user) {
-            $user->rol = 'proveedor';
+            $user->rol = $rol;
             $user->save();
         }
         return redirect()->route('registerProvider')->with('success:', 'Usuario creado exitosamente');
     }
-    
+
     public function getUser($id)
     {
         $user = users::where('id', $id)->first();
         return response()->json($user);
+    }
+
+    public function delete($id)
+    {
+        $user = users::where('id', $id)->first();
+
+        if ($user) {
+            $user->delete();
+            return response()->json(['message' => 'Registro eliminado correctamente']);
+        } else {
+            return response()->json(['message' => 'No se encontraron registros para eliminar'], 404);
+        }
     }
 
 

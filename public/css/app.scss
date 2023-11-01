@@ -23,7 +23,6 @@
 
         .form-form {
             width: 30%;
-            height: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,6 +33,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            padding: 20px 30px;
 
             .maskop {
                 display: none;
@@ -199,4 +199,3 @@ h1 {
 .card-info {
     width: 60%;
 }
-
