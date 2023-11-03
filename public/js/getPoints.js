@@ -6,6 +6,7 @@ const getPoints = async () => {
     res = await fetch('api/providers/' + idProvider);
     let provider = await res.json();
     text = '';
+    
     data.forEach(e => {
         text += `
                 <div class="card">
