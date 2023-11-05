@@ -39,7 +39,9 @@ class UsersController extends Controller
                     return redirect()->route('dashboard')->with('success:', 'Usuario con credenciales correctas');
                 } else if ($user->rol == 'proveedor') {
                     return redirect()->route('points')->with('success:', 'Usuario con credenciales correctas');
-                }
+                } else if ($user->rol == 'admin') {
+                    return redirect()->route('users')->with('success:', 'Usuario con credenciales correctas');
+                } 
 
             }
         }
