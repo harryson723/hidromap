@@ -3,20 +3,16 @@ FROM php:7.4-apache
 
 # Instala el servidor MariaDB y extensiones PHP necesarias
 RUN apt-get update && apt-get install -y mariadb-server
-RUN apt-get install -y git
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Establece la contraseña de root de MariaDB (cámbiala según tus necesidades)
 RUN echo "mariadb-server mariadb-server/root_password password admin" | debconf-set-selections
 RUN echo "mariadb-server mariadb-server/root_password_again password admin" | debconf-set-selections
 
-WORKDIR /var/www
+# Copia tus archivos de la aplicación a la carpeta adecuada
+COPY . /var/www/html
 
-RUN git clone https://github.com/harryson723/hidromap
-
-RUN cp -r hidromap/* html/
-
-RUN cd html
+WORKDIR /var/www/html
 
 RUN chmod -R 777 storage
 
