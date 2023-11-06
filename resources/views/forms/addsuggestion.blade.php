@@ -29,7 +29,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="comment" class="form-label">Descripción:</label>
-                    <textarea class="form-control" id="comment" name="comment" placeholder="Ingrese su contraseña"></textarea>
+                    <textarea class="form-control" id="comment" name="comment" placeholder="Ingrese su sugerencia"></textarea>
                 </div>
                 <input class="btn btn-primary mt-3" type="submit" value="Enviar">
             </form>

@@ -67,7 +67,7 @@
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     .card {
         margin: 40px;
@@ -80,6 +80,17 @@
             .card-info {
                 display: flex;
                 flex-direction: column;
+                .comment{
+                    width: 165%;
+                    background-color: aliceblue;
+                    border-style: solid;
+                    border-radius: 10px;
+                    border-color: #012a44;
+                    border-width: 1px;
+                    color: #000;
+                    padding: 10px 20px;
+                    margin-top: 10px;
+                }
             }
         }
     }
@@ -198,4 +209,10 @@ h1 {
 
 .card-info {
     width: 60%;
+}
+
+.map-main{
+    position: absolute;
+    right: 0;
+    opacity: 0.5;
 }

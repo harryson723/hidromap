@@ -7,10 +7,10 @@
 
 @section('content')
     <div id="app">
-        <div class="section-main">
+        <div class="map-main">
             <h1>HIDROMAP</h1>
         </div>
-        <div id="map" style="width: 80%; height: 600px;"></div>
+        <div id="map" style="width: 80%; height: 93vh;"></div>
     </div>
 @endsection
 
