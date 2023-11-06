@@ -40,7 +40,7 @@ class UsersController extends Controller
                 } else if ($user->rol == 'proveedor') {
                     return redirect()->route('points')->with('success:', 'Usuario con credenciales correctas');
                 } else if ($user->rol == 'admin') {
-                    return redirect()->route('users')->with('success:', 'Usuario con credenciales correctas');
+                    return redirect()->route('usersAdmin')->with('success:', 'Usuario con credenciales correctas');
                 } 
 
             }

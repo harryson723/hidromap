@@ -28,6 +28,7 @@
                     placeholder="Ingrese su contraseña">
             </div>
             <input class="btn btn-primary mt-3 details" type="submit" value="Ingresar">
+            <a href="/register">Registrarse</a>
         </form>
     </div>
 </div>
