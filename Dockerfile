@@ -14,9 +14,6 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN echo "mariadb-server mariadb-server/root_password password admin" | debconf-set-selections
 RUN echo "mariadb-server mariadb-server/root_password_again password admin" | debconf-set-selections
 
-# Instala Git en el contenedor
-RUN apt-get install -y git
-
 # Clona tu repositorio de Git en la carpeta adecuada
 WORKDIR /var/www/html
 RUN git clone https://github.com/harryson723/hidromap.git .
