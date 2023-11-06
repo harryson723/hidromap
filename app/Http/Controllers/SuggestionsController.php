@@ -11,8 +11,8 @@ class SuggestionsController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'comment' => 'required',
-            'email' => 'required',
+            'comment' => 'required|max:255',
+            'email' => 'required|email',
         ]);
 
         $suggestion = new suggestions;
