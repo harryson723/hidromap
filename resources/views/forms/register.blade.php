@@ -36,7 +36,7 @@
                         placeholder="Ingrese su contraseña">
                 </div>
                 <input class="btn btn-primary mt-3" type="submit" value="Registrar">
-                <a href="/">Iniciar sesión</a>
+                <a class="btn btn-primary mt-3" href="/">Iniciar sesión</a>
                 <input type="text" class="hidden" name="rol" id="rol" value="usuario">
             </form>
             <div class="form-img">
