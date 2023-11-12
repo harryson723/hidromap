@@ -52,6 +52,13 @@
   background-color: #bdbdbd;
   border-color: #333333;
 }
+.form-container .form-img .form-form .mb-3 .registerlink {
+  position: relative;
+  color: black;
+}
+.form-container .form-img .form-form .mb-3 .registerlink:hover {
+  color: white;
+}
 .form-container .form-img .form-form .details {
   background-color: #0072bb;
   border-color: #0072bb;
@@ -95,6 +102,7 @@
 
 .nav {
   background-color: #0072bb;
+  height: 7vh;
 }
 .nav li {
   list-style: none;
@@ -193,4 +201,5 @@ h1 {
   position: absolute;
   right: 0;
   opacity: 0.5;
+  z-index: 999;
 }/*# sourceMappingURL=app.css.map */
