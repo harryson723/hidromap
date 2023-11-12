@@ -52,6 +52,12 @@
   background-color: #bdbdbd;
   border-color: #333333;
 }
+.form-container .form-img .form-form .mb-3 .registerlink {
+  color: black;
+}
+.form-container .form-img .form-form .mb-3 .registerlink:hover {
+  color: azure;
+}
 .form-container .form-img .form-form .details {
   background-color: #0072bb;
   border-color: #0072bb;

@@ -54,6 +54,12 @@
                     background-color: #bdbdbd;
                     border-color: #333333;
                 }
+                .registerlink{
+                    color: black;
+                    &:hover{
+                        color: azure;
+                    }
+                }
             }
 
             .details {

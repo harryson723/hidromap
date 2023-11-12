@@ -26,8 +26,10 @@
                 <label for="password" class="form-label">Contraseña:</label>
                 <input type="password" class="form-control" name="password" id="password"
                     placeholder="Ingrese su contraseña">
+                    <a class="registerlink" href="/register">Registrarme</a>
             </div>
             <input class="btn btn-primary mt-3 details" type="submit" value="Ingresar">
+
         </form>
     </div>
 </div>
