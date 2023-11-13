@@ -2,17 +2,22 @@
 FROM php:7.4-apache
 
 # Instala el servidor MariaDB y extensiones PHP necesarias
-RUN apt-get update && apt-get install -y mariadb-server
+RUN apt-get update && apt-get install -y mariadb-server \
+    git \
+    zip \
+    unzip
+# Descarga e instala Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Establece la contraseña de root de MariaDB (cámbiala según tus necesidades)
 RUN echo "mariadb-server mariadb-server/root_password password admin" | debconf-set-selections
 RUN echo "mariadb-server mariadb-server/root_password_again password admin" | debconf-set-selections
 
-# Copia tus archivos de la aplicación a la carpeta adecuada
-COPY . /var/www/html
-
+# Clona tu repositorio de Git en la carpeta adecuada
 WORKDIR /var/www/html
+
+RUN git clone https://github.com/harryson723/hidromap.git .
 
 RUN chmod -R 777 storage
 
@@ -27,9 +32,9 @@ CMD service mariadb start && apache2-foreground
 COPY init.sql /docker-entrypoint-initdb.d/
 RUN service mariadb start && \
     mariadb -u root -padmin < /docker-entrypoint-initdb.d/init.sql && \
-    php artisan migrate
-    
+    composer install && \
+    php artisan config:cache && \
+    php artisan migrate --force
+
 COPY admin.sql /docker-entrypoint-admindb.d/
 RUN service mariadb start && mariadb -u root -padmin < /docker-entrypoint-admindb.d/admin.sql
-
-
