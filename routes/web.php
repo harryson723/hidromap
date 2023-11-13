@@ -26,29 +26,29 @@ Route::get('changePassword', function () {
 
 Route::get('registerProvider', function () {
     return view('forms.registerProvider');
-})->name('registerProvider')->middleware('redirectIfNoSuccess');
+})->name('registerProvider');
 
 Route::get('addPoint', function () {
     return view('forms.addPoint');
-})->name('addPoint')->middleware('redirectIfNoSuccess');
+})->name('addPoint');
 
 Route::get('addsuggestion', function () {
     return view('forms.addsuggestion');
-})->name('addsuggestion')->middleware('redirectIfNoSuccess');
+})->name('addsuggestion');
 
 Route::get('dashboard', function () {
     return view('map.dashboard');
-})->name('dashboard')->middleware('redirectIfNoSuccess');
+})->name('dashboard');
 
-Route::get('points', [PointsController::class, 'show'])->name('points')->middleware('redirectIfNoSuccess');
+Route::get('points', [PointsController::class, 'show'])->name('points');
 
 Route::get('users', function () {
     return view('admin.users');
-})->name('usersAdmin')->middleware('redirectIfNoSuccess');
+})->name('usersAdmin');
 
 Route::get('suggestion', function () {
     return view('admin.suggestion');
-})->name('suggestion')->middleware('redirectIfNoSuccess');
+})->name('suggestion');
 
 // ****************** API ****************** //
 
