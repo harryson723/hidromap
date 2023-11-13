@@ -23,17 +23,17 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="text" class="form-control" name="email" id="email"
-                        placeholder="Ingrese su contraseña">
+                        placeholder="Ingrese su Correo">
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Telefono:</label>
                     <input type="text" class="form-control" name="phone" id="phone"
-                        placeholder="Ingrese su contraseña">
+                        placeholder="Ingrese su Telefono">
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Dirección:</label>
                     <input type="text" class="form-control" name="address" id="address"
-                        placeholder="Ingrese su contraseña">
+                        placeholder="Ingrese su Direccion">
                 </div>
                 <input type="text" class="hidden" name="rol" value="proveedor">
                 <input class="btn btn-primary mt-3" type="submit" value="Registrar">
