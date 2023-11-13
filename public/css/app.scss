@@ -55,6 +55,14 @@
                     background-color: #bdbdbd;
                     border-color: #333333;
                 }
+
+                .registerlink{
+                    position: relative;
+                    color: black;
+                    &:hover{
+                        color: white;
+                    }
+                }
             }
 
             .details {
@@ -106,6 +114,7 @@
 
 .nav {
     background-color: #0072bb;
+    height: 7vh;
 
     li {
         list-style: none;
@@ -215,4 +224,5 @@ h1 {
     position: absolute;
     right: 0;
     opacity: 0.5;
+    z-index: 999;
 }

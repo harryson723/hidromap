@@ -27,7 +27,7 @@
                 <input type="password" class="form-control" name="password" id="password"
                     placeholder="Ingrese su contraseña">
             </div>
-            <input class="btn btn-primary mt-3" type="submit" value="Ingresar">
+            <input class="btn btn-primary mt-3 details" type="submit" value="Ingresar">            
             <a class="btn btn-primary mt-3" href="/register">Registrarse</a>
         </form>
     </div>
