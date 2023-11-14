@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class point extends Model
 {
-    use HasFactory;
+    public function points()
+    {
+        return $this->hasMany(Point::class, 'FK_id_provider');
+    }
 }

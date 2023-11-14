@@ -7,25 +7,13 @@
 
 @section('content')
     <div id="app">
-        <div class="section-main">
+        <div class="map-main">
             <h1>HIDROMAP</h1>
-            <button>USUARIO</button>
         </div>
-        <div id="map" style="width: 80%; height: 600px;"></div>
+        <div id="map" style="width: 100%; height: 93vh;"></div>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
-        // Crea un mapa en el contenedor con ID 'map'
-        const map = L.map('map').setView([4.3095, -74.3005], 16);
-
-        // Agrega una capa de OpenStreetMap al mapa
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        var marker = L.marker([4.3095, -74.3005]).addTo(map); // Coordenadas del marcador
-        marker.bindPopup("<b>Este es un marcador con información.</b>");
-    </script>
+    <script src="{!! asset('js/addPoints.js') !!}"></script>
 @endsection

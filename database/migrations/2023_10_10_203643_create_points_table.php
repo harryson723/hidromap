@@ -15,9 +15,11 @@ class CreatePointsTable extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('longitud');
             $table->string('latitude');
             $table->string('description');
+            $table->timestamps();
             $table->unsignedBigInteger('FK_id_provider');
             $table->foreign('FK_id_provider')->references('id')->on('providers');
         });

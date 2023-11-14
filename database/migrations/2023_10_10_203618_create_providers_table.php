@@ -18,6 +18,7 @@ class CreateProvidersTable extends Migration
             $table->string('phone');
             $table->string('image');
             $table->string('address');
+            $table->timestamps();
         });
     }
 
