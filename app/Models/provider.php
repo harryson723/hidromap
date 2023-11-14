@@ -11,4 +11,9 @@ class provider extends Model
     {
         return $this->belongsTo(User::class, 'id');
     }
+
+    public function points()
+    {
+        return $this->hasMany(Point::class, 'FK_id_provider');
+    }
 }

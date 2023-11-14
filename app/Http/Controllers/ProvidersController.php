@@ -69,6 +69,8 @@ class ProvidersController extends Controller
         $provider = provider::where('id', $id)->first();
 
         if ($provider) {
+            // Eliminar registros relacionados en la tabla 'points'
+            $provider->points()->delete();
             $provider->delete();
             return response()->json(['message' => 'Registro eliminado correctamente']);
         } else {
